@@ -6,6 +6,7 @@ npm-debug.log
 public/uploads
 public/tts
 .env
+lib/web_scraping/pill_images
 
 # Created by https://www.gitignore.io/api/osx,windows,linux
 

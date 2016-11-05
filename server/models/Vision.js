@@ -18,7 +18,7 @@ class Vision {
           return reject(err);
         }
 
-        const classification = JSON.parse(data);
+        const classification = data;
         const pillName = classification.images[0].classifiers[1].name;
 
         return resolve(pillName);
