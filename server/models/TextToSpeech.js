@@ -18,8 +18,8 @@ const yyyymmddhhmmss = () => {
 };
 
 const TTS = new WatsonTTS({
-  username: process.env.WATSON_USERNAME,
-  password: process.env.WATSON_PASSWORD,
+  username: process.env.WATSON_SPEECH_USERNAME,
+  password: process.env.WATSON_SPEECH_PASSWORD,
 });
 
 class TextToSpeech {

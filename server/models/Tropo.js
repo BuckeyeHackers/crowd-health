@@ -17,9 +17,6 @@ class Tropo {
     return fetch(`https://api.tropo.com/1.0/sessions?action=create&token=${process.env.TROPO_MESSAGE_KEY}`, {
       method: 'GET',
       headers,
-    }).then(resp => {
-      console.log(resp);
-      return resp;
     });
   }
 }
