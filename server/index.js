@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies, global-require
+}
+
 const express = require('express');
 
 const addMiddleware = require('./middleware');

@@ -1,4 +1,5 @@
 const Model = require('./Model');
+const TextToSpeech = require('./TextToSpeech');
 
 class Pill extends Model {
   static get attributes() {
@@ -20,10 +21,9 @@ class Pill extends Model {
 
   static identipill(pillFile, contacts) {
     return super.modelValidations({ pillFile, contacts }, this.identipillAttributes)
-      .then(() => new Pill({ pillName: 'test name', pillNameAudio: 'url for audio' }));
+      .then(pill => ({ pillName: pill.pillFile.originalname, contacts: JSON.parse(pill.contacts) }))
+      .then(pill => TextToSpeech.toSpeech(pill.pillName, `Identified! That's ${pill.pillName}.`));
   }
 }
 
-module.exports = {
-  Pill,
-};
+module.exports = Pill;
