@@ -12,7 +12,7 @@
 
 ## Overview
 
-CrowdHealth is a crowd-funded health and insurance platform.
+IntelliPill is a pill identification service.
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
 
@@ -26,7 +26,7 @@ None yet!
 
 [![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
 
-Copyright (c) 2016 "CrowdHealth" kylekthompson, jmkuehn, emilyengle, unkrich
+Copyright (c) 2016 "IntelliPill" kylekthompson, jmkuehn, emilyengle, unkrich
 
 Licensed under the [MIT License](./LICENSE.md).
 

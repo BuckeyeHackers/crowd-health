@@ -9,16 +9,4 @@ cd "$(dirname "$0")/.."
 
 script/bootstrap
 
-if psql -lqt | cut -d \| -f 1 | grep -w crowd_health_development; then
-  echo "Database already exists"
-  echo "==> Removing previous database..."
-
-  # remove surrounding whitespace
-  dropdb "$(psql -lqt | cut -d \| -f 1 | grep -w crowd_health_development | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
-fi
-
-echo "==> Setting up DB..."
-createdb crowd_health_development
-npm run migrate:latest
-
 echo "==> App is now ready to go!"
