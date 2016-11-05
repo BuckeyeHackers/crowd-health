@@ -39,7 +39,7 @@ class TextToSpeech {
         }
 
         fs.appendFileSync(fileLocation, data);
-        return resolve({ pillName, pillAudio: fileLocation });
+        return resolve(fileLocation);
       });
     });
   }

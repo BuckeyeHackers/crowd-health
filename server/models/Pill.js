@@ -1,6 +1,7 @@
 const Model = require('./Model');
 const TextToSpeech = require('./TextToSpeech');
 const Tropo = require('./Tropo');
+const Vision = require('./Vision');
 
 class Pill extends Model {
   static get attributes() {
@@ -22,8 +23,8 @@ class Pill extends Model {
 
   static identipill(pillFile, contacts, name) {
     return super.modelValidations({ pillFile, contacts }, this.identipillAttributes)
-      .then(pill => ({ pillName: pill.pillFile.originalname }))
-      .then(pill => TextToSpeech.toSpeech(pill.pillName, `Identified! That's ${pill.pillName}.`))
+      .then(pill => Vision.classify(pill.pillFile.destination))
+      .then(pillName => TextToSpeech.toSpeech(pillName, `Identified! That's ${pillName}.`).then(pillAudio => ({ pillName, pillAudio })))
       .then(pill => Tropo.sendMessageToNumbers(`${name} has just taken ${pill.pillName}`, JSON.parse(contacts)).then(() => pill));
   }
 }
