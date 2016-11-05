@@ -11,15 +11,15 @@ class Pill extends Model {
   static get identipillAttributes() {
     return {
       required: [
+        'pillFile',
         'contacts',
-        'pillImage',
       ],
       optional: [],
     };
   }
 
-  static identipill(pill) {
-    return super.modelValidations(pill, this.identipillAttributes)
+  static identipill(pillFile, contacts) {
+    return super.modelValidations({ pillFile, contacts }, this.identipillAttributes)
       .then(() => new Pill({ pillName: 'test name', pillNameAudio: 'url for audio' }));
   }
 }
