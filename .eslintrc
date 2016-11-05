@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-bitwise": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-extension": "off",
+    "import/extensions": ["error", {".js": "never", ".jsx": "never"}]
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+}

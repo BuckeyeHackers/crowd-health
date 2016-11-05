@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# script/server: Start application for web environment
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "==> Compiling client code"
+rm -rf dist/
+npm run build
+
+echo "==> Running migrations"
+npm run migrate:latest
+
+echo "==> Starting server"
+node ./../server
