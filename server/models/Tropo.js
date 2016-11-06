@@ -1,5 +1,4 @@
 /* globals Headers */
-
 const fetch = require('isomorphic-fetch');
 
 class Tropo {

@@ -30,6 +30,7 @@
     "url": "github.com/BuckeyeHackers/intellipill-api"
   },
   "dependencies": {
+    "@google-cloud/vision": "^0.5.0",
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",
     "express": "^4.14.0",

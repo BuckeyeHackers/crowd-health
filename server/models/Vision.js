@@ -1,29 +1,22 @@
-const fs = require('fs');
-const WatsonVision = require('watson-developer-cloud/visual-recognition/v3');
+const path = require('path');
+const vision = require('@google-cloud/vision');
 
-const WVision = new WatsonVision({
-  api_key: process.env.WATSON_VISION_KEY,
-  version_date: '2016-05-19',
+const GVision = vision({
+  projectId: 'identipill',
+  keyFilename: path.resolve('./google-voice.json'),
 });
+
+const pills = {
+  369: 'Amitriptyline Hydrochloride',
+  RX693: 'Clindamycin',
+  3240: 'Cymbalta',
+  3571: 'Hydrochlorothiazide',
+  149: 'Naproxen',
+};
 
 class Vision {
   static classify(imagePath) {
-    const params = {
-      images_file: fs.createReadStream(imagePath),
-    };
-
-    return new Promise((resolve, reject) => {
-      WVision.classify(params, (err, data) => {
-        if (err) {
-          return reject(err);
-        }
-
-        const classification = data;
-        const pillName = classification.images[0].classifiers[1].name;
-
-        return resolve(pillName);
-      });
-    });
+    return GVision.detectText(imagePath).then(data => data[0][1]).then(text => pills[text]);
   }
 }
 
