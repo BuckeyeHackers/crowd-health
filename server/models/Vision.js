@@ -1,9 +1,8 @@
-const path = require('path');
 const vision = require('@google-cloud/vision');
 
 const GVision = vision({
   projectId: 'identipill',
-  keyFilename: path.resolve('./google-voice.json'),
+  credentials: JSON.parse(process.env.GOOGLE_JSON_STRING),
 });
 
 const pills = {
