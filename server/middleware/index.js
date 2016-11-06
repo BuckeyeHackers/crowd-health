@@ -21,7 +21,12 @@ const addMiddleware = (app) => {
 
   // static files
   app.use(express.static(path.resolve(__dirname, '../../public')));
-  app.use('*', (req, res) => {
+
+  app.use('/public/tts/*.wav', (req, res) => {
+    res.sendFile(path.resolve(__dirname, `../../${req.originalUrl}`));
+  });
+
+  app.use('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../public/index.html'));
   });
 
