@@ -5,6 +5,9 @@ dist/
 npm-debug.log
 public/uploads
 public/tts
+.env
+lib/web_scraping/pill_images
+google-voice.json
 
 # Created by https://www.gitignore.io/api/osx,windows,linux
 

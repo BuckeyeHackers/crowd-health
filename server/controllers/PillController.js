@@ -3,7 +3,7 @@ const { Pill } = require('../models');
 
 module.exports = class PillsController extends Controller {
   static identipill(req, res) {
-    Pill.identipill(req.file, req.body.contacts)
+    Pill.identipill(req.file, req.body.numbers, req.body.name)
       .then((identifiedPill) => {
         res.status(200).json(super.dataJSON(identifiedPill));
       })
