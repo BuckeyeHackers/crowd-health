@@ -3,8 +3,8 @@ node_modules/
 coverage/
 dist/
 npm-debug.log
-public/uploads
-public/tts
+public/uploads/*.jpg
+public/uploads/*.JPG
 .env
 lib/web_scraping/pill_images
 google-voice.json
