@@ -16,7 +16,8 @@ const pills = {
 
 class Vision {
   static classify(imagePath) {
-    return GVision.detectText(imagePath).then(data => data[0][1]).then(text => pills[text]);
+    return GVision.detectText(imagePath).then(data => data[0][1])
+      .then(text => pills[text]).then(stuff => stuff);
   }
 }
 
