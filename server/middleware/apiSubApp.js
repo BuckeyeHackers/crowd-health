@@ -9,7 +9,7 @@ const apiSubApp = express();
 const router = new express.Router();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.resolve('./public/uploads'));
+    cb(null, path.resolve(__dirname, '../../public/uploads'));
   },
   filename: (req, file, cb) => {
     crypto.pseudoRandomBytes(16, (err, raw) => {
